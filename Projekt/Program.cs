@@ -18,9 +18,8 @@
 
 
         int[] lp=new int[Num+1];
-
-        //List of primes
-        var pr = new List<int>();
+        
+        var liczbyPierwsze = new List<int>();
 
         int op = 0;
         for (int i = 2; i <= Num; ++i)
@@ -28,18 +27,18 @@
             if (lp[i] == 0)
             {
                 lp[i] = i;
-                pr.Add(i);
+                liczbyPierwsze.Add(i);
 
             }
 
-            for (int j = 0; j < pr.Count && pr[j] <= lp[i] && i * pr[j] <= Num; ++j)
+            for (int j = 0; j < liczbyPierwsze.Count && liczbyPierwsze[j] <= lp[i] && i * liczbyPierwsze[j] <= Num; ++j)
             {
-                lp[i * pr[j]] = pr[j];
+                lp[i * liczbyPierwsze[j]] = liczbyPierwsze[j];
                 op++;
             }
         }
 
-        if (pr.Contains(Num))
+        if (liczbyPierwsze.Contains(Num))
         {
             return true;
         }
